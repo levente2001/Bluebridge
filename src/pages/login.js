@@ -122,7 +122,7 @@ class Login extends React.Component {
               required
             />
             {errorMsg && <p className="error">{errorMsg}</p>}
-            <button id="login-button" type="submit">
+            <button  id="login-button" type="submit">
               Login
             </button>
 

@@ -118,7 +118,7 @@ class Home extends React.Component {
     const { isMobile, showMobileMenu } = this.state;
     //const { imageData } = this.state;
     if (this.state.redirectToLogin) {
-      return <Redirect to="/login" />;
+      return <Redirect to="/profile" />;
     }
 
 
@@ -144,10 +144,10 @@ class Home extends React.Component {
               )}
               {!isMobile && (
                 <div className="navbar-items">
-                  <button onClick={handleSignOut} className="marginside40 ">Profile </button>
-                  <button onClick={handleSignOut} className="marginside40 ">Experts </button>
-                  <button onClick={handleSignOut} className="marginside40 ">Requests </button>
-                  <button onClick={handleSignOut} className="marginside40 ">About </button>
+                  <button onClick={this.handleLogin} className="marginside40 ">Profile </button>
+                  <button className="marginside40 ">Experts </button>
+                  <button className="marginside40 ">Requests </button>
+                  <button className="marginside40 ">About </button>
                   {this.props.authState === authStates.LOGGED_IN && (
                     <button onClick={() => this.props.history.push('/upload')} className="post buttonsidebar marginside40"> Post a request </button>
                   )}
