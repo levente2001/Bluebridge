@@ -126,7 +126,7 @@ class Home extends React.Component {
       <div className="containerr">
         <div className="navbar">
           <div className="padding80">
-            <p>BlueBridge</p>
+            <p>BlueBridge.nl</p>
             {isMobile && (
                 <>
                   <button className="menu-button" onClick={this.toggleMobileMenu}>
