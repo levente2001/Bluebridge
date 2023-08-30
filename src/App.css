@@ -42,9 +42,6 @@ html {
   color: #34495E;
 }
 
-.color {
-  background-color: #3A6F93;
-}
 
 h1 {
   color: #3A6F93;
@@ -165,8 +162,23 @@ button {
     background-color: #F39C12;
   }
 
+  .linkk {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #70B69F;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #fff;
+  }
+
   .link:hover {
     background-color: #F3BB61;
+  }
+
+  .linkk:hover {
+    background-color: #F3BB61;
+    color: #fff
   }
 
   .img {

@@ -116,7 +116,6 @@ class Home extends React.Component {
 
   render() {
     const { isMobile, showMobileMenu } = this.state;
-    const { imageData, currentImageIndices } = this.state;
     //const { imageData } = this.state;
     if (this.state.redirectToLogin) {
       return <Redirect to="/login" />;
@@ -169,13 +168,13 @@ class Home extends React.Component {
               <img className="imgcard" src={DUMMY_IMAGE_URL} alt="description" />
               <p className="justified">Maecenas varius porttitor ipsum consequat
               vivamus urna lacus viverra a sed eget.</p>
-              <Link className="link" to="/signup">Post a request</Link>
+              <Link className="linkk" to="/signup">Post a request</Link>
             </div>
             <div className="sectwocards">
               <img className="imgcard" src={DUMMY_IMAGE_URL} alt="description" />
               <p className="justified">Maecenas varius porttitor ipsum consequat
               vivamus urna lacus viverra a sed eget.</p>
-              <Link className="link" to="/signup">List a service</Link>
+              <Link className="linkk" to="/signup">List a service</Link>
             </div>
           </div>
           <div style={{marginTop: 30, flexDirection: "column", display: "flex", alignItems: "center", textAlign: "justify"}}>
@@ -183,7 +182,7 @@ class Home extends React.Component {
             <h2>Maecenas varius porttitor ipsum consequat
               vivamus urna lacus viverra a sed eget.Maecenas varius porttitor ipsum consequat
               vivamus urna lacus viverra a sed eget.</h2>
-              <Link className="link color" to="/signup">Read more</Link>
+              <Link className="linkk" to="/signup">Read more</Link>
           </div>
           <div style={{height: 100, display: "flex", alignItems: "center", justifyContent: "center"}}>
             <p>&copy;BlueBridge All Rights Resevred. </p>
