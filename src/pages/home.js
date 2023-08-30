@@ -183,7 +183,7 @@ class Home extends React.Component {
             <h2>Maecenas varius porttitor ipsum consequat
               vivamus urna lacus viverra a sed eget.Maecenas varius porttitor ipsum consequat
               vivamus urna lacus viverra a sed eget.</h2>
-              <Link className="link" to="/signup">Learn more</Link>
+              <Link className="link color" to="/signup">Read more</Link>
           </div>
           <div style={{height: 100, display: "flex", alignItems: "center", justifyContent: "center"}}>
             <p>&copy;BlueBridge All Rights Resevred. </p>
