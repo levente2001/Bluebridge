@@ -6,6 +6,7 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Upload from "./pages/upload";
 import Profile from "./pages/profile";
+import Experts from "./pages/experts";
 
 import "./App.css";
 
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/experts">
+            <Experts />
           </Route>
         </Switch>
     </Router>

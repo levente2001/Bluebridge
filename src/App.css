@@ -16,6 +16,10 @@ html {
   background-color: #70B69F;
 }
 
+.padding80 p {
+  cursor: pointer;
+}
+
 
 .custom-underline {
   border-bottom: 3px solid white;
@@ -79,10 +83,19 @@ h3 {
 
 .homepage {
   display: flex;
-  margin-top: 110px;
+  margin-top: 170px;
   flex-direction: column;
   align-items: center;
   width: 70vw;
+  overflow: hidden;
+}
+
+.homepagee {
+  display: flex;
+  margin-top: 170px;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw;
   overflow: hidden;
 }
 
@@ -96,7 +109,7 @@ h3 {
 .homepageinsidesectwo {
   display: flex;
   width: 80%;
-  margin-top: 20px;
+  margin-top: 40px;
   align-items: center;
   justify-content: space-between;
 }
@@ -301,8 +314,8 @@ button {
     margin: 10px;
     background-color: #f3f3f3f3;
     padding: 10px;
-    width: 250px;
-    height: 400px;
+    width: 200px;
+    height: 300px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     margin-bottom: 10px;
@@ -358,14 +371,13 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 90px;
     width: 90%;
-    height: 80vh;
     overflow: scroll;
   }
 
   .itemdescription {
     height: 35%;
+    width: 90%;
     overflow: scroll;
   }
   .itemdescription::-webkit-scrollbar {

@@ -1,12 +1,12 @@
 import React from "react";
-import { Redirect, withRouter, Link } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import { authStates, withAuth } from "../components/auth";
 import Firebase from "firebase";
 import { signOut } from "../utils/firebase";
+import Loader from "../components/loader";
 import { FaBars, FaTimes } from 'react-icons/fa';
 
-import DUMMY_IMAGE_URL from "../assets/manwithlaptop.png";
-import plane from '../assets/banner.png';
+import DUMMY_IMAGE_URL from "../assets/dummy-post-horisontal.jpg";
 
 function handleSignOut() {
   signOut()
@@ -18,8 +18,6 @@ function handleSignOut() {
     });
 }
 
-
-
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -28,12 +26,7 @@ class Home extends React.Component {
       isMobile: false,
       imageData: [],
       currentImageIndices: {},
-      redirectToLogin: false,
     };
-  }
-
-  handleLogin = () => {
-    this.setState({ redirectToLogin: true });
   }
 
   handleResize = () => {
@@ -116,17 +109,22 @@ class Home extends React.Component {
 
   render() {
     const { isMobile, showMobileMenu } = this.state;
+    const { imageData, currentImageIndices } = this.state;
     //const { imageData } = this.state;
-    if (this.state.redirectToLogin) {
-      return <Redirect to="/profile" />;
+
+    if (this.props.authState === authStates.INITIAL_VALUE) {
+      return <Loader />;
     }
 
+    if (this.props.authState === authStates.LOGGED_OUT) {
+      return <Redirect to="/login"></Redirect>;
+    }
 
     return (
-      <div className="containerr">
+      <div className="container">
         <div className="navbar">
-          <div className="padding80">
-            <p onClick={() => this.props.history.push('/experts')}>BlueBridge.nl</p>
+        <div className="padding80">
+            <p onClick={() => this.props.history.push('/')}>BlueBridge.nl</p>
             {isMobile && (
                 <>
                   <button className="menu-button" onClick={this.toggleMobileMenu}>
@@ -158,36 +156,51 @@ class Home extends React.Component {
               )}
           </div>
         </div>
-        <div className="homepage">
-          <div className="homepageinside">
-            <h3>Find an expert for <br />any kind of task</h3>
-            <img className="img border-radius" src={plane} alt="description" />
-          </div>
-          <div className="homepageinsidesectwo">
-            <div className="sectwocards">
-              <img className="imgcard" src={DUMMY_IMAGE_URL} alt="description" />
-              <p className="justified">Maecenas varius porttitor ipsum consequat
-              vivamus urna lacus viverra a sed eget.</p>
-              <Link className="linkk" to="/signup">Post a request</Link>
+        <div className="homepagee">
+        <div className="itemslist">
+        {imageData && imageData.map((post, postIndex) => (
+            <div key={postIndex} className="card uploadscreen">
+              {post.imageURLs && post.imageURLs.length > 0 ? (
+                post.imageURLs.map((imageUrl, imgIndex) => (
+                  <div key={imgIndex} style={{ borderRadius: "10px", alignItems: "center", justifyContent: "center", width: '100%', height: '100%', display: imgIndex === (currentImageIndices[postIndex] || 0) ? 'block' : 'none' }}>
+                    <img onClick={() => this.props.history.push(`/productpage/${post.id}`)} src={imageUrl} alt="uploaded" style={{ width: '200px', height: '40%', objectFit: 'contain', cursor: "pointer" }} />
+                    <div style={{display: "flex", alignItems: "center", justifyContent: "center", width: '100%',}}>
+                      <button className="cardbutton" onClick={() => this.handleImageScroll(postIndex, -1)}>&lt;</button>
+                      <button className="cardbutton" onClick={() => this.handleImageScroll(postIndex, 1)}>&gt;</button>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div style={{ borderRadius: "10px", alignItems: "center", justifyContent: "center", width: '100%', height: '100%' }}>
+                  <img src={DUMMY_IMAGE_URL} alt="Default" style={{ width: '200px', height: '40%', objectFit: 'contain', cursor: "pointer" }} />
+                </div>
+              )}
+              
+              <div style={{display: "flex", alignItems: "center", justifyContent: "center", width: '100%',}}>
+                <h2 style={{fontSize: "1em"}}>{post.title}</h2>
+              </div>
+              <div className="itemdescription">
+                <p className="fontloader">{post.shortdescription}</p>
+              </div>
             </div>
-            <div className="sectwocards">
-              <img className="imgcard" src={DUMMY_IMAGE_URL} alt="description" />
-              <p className="justified">Maecenas varius porttitor ipsum consequat
-              vivamus urna lacus viverra a sed eget.</p>
-              <Link className="linkk" to="/signup">List a service</Link>
-            </div>
-          </div>
-          <div style={{marginTop: 30, flexDirection: "column", display: "flex", alignItems: "center", textAlign: "justify"}}>
-            <h3>About us</h3>
-            <h2>Maecenas varius porttitor ipsum consequat
-              vivamus urna lacus viverra a sed eget.Maecenas varius porttitor ipsum consequat
-              vivamus urna lacus viverra a sed eget.</h2>
-              <Link className="linkk" to="/signup">Read more</Link>
-          </div>
-          <div style={{height: 100, display: "flex", alignItems: "center", justifyContent: "center"}}>
-            <p>&copy;BlueBridge All Rights Resevred. </p>
-          </div>
+          ))}
+
         </div>
+
+              <div style={{height: "30px"}}></div>
+        </div>
+        
+
+
+         {/*{this.state.imageData && this.state.imageData.map((data, index) => (
+          <div key={index}>
+            <h2>{data.title}</h2>
+            <p>{data.description}</p>
+            <div style={{width: '400px', height: '300px'}}>
+              <img src={data.imageURL} alt="database" style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain'}}/>
+            </div>
+          </div>
+        ))}*/}
       </div>
     );
   }
