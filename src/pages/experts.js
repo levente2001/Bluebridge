@@ -3,7 +3,6 @@ import { Redirect, withRouter } from "react-router-dom";
 import { authStates, withAuth } from "../components/auth";
 import Firebase from "firebase";
 import { signOut } from "../utils/firebase";
-import Loader from "../components/loader";
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 import DUMMY_IMAGE_URL from "../assets/dummy-post-horisontal.jpg";
