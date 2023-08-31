@@ -26,6 +26,7 @@ class Home extends React.Component {
       isMobile: false,
       imageData: [],
       currentImageIndices: {},
+      redirectToLogin: false,
     };
   }
 
@@ -33,6 +34,10 @@ class Home extends React.Component {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   };
+
+  handleLogin = () => {
+    this.setState({ redirectToLogin: true });
+  }
 
   handleMediaQuery = (event) => {
     this.setState({ isMobile: event.matches });
@@ -112,12 +117,8 @@ class Home extends React.Component {
     const { imageData, currentImageIndices } = this.state;
     //const { imageData } = this.state;
 
-    if (this.props.authState === authStates.INITIAL_VALUE) {
-      return <Loader />;
-    }
-
-    if (this.props.authState === authStates.LOGGED_OUT) {
-      return <Redirect to="/login"></Redirect>;
+    if (this.state.redirectToLogin) {
+      return <Redirect to="/profile" />;
     }
 
     return (
