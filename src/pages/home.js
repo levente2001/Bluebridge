@@ -160,7 +160,7 @@ class Home extends React.Component {
         </div>
         <div className="homepage">
           <div className="homepageinside">
-            <h3>Find an exdfdfbbbpert for <br />any kind of task</h3>
+            <h3>Find an expert for <br />any kind of task</h3>
             <img className="img border-radius" src={plane} alt="description" />
           </div>
           <div className="homepageinsidesectwo">

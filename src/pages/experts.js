@@ -189,18 +189,6 @@ class Home extends React.Component {
 
               <div style={{height: "30px"}}></div>
         </div>
-        
-
-
-         {/*{this.state.imageData && this.state.imageData.map((data, index) => (
-          <div key={index}>
-            <h2>{data.title}</h2>
-            <p>{data.description}</p>
-            <div style={{width: '400px', height: '300px'}}>
-              <img src={data.imageURL} alt="database" style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain'}}/>
-            </div>
-          </div>
-        ))}*/}
       </div>
     );
   }
