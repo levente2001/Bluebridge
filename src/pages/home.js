@@ -12,6 +12,12 @@ import freelan from '../assets/freelan.png';
 import moneyy from '../assets/moneyy.png';
 import helpyou from '../assets/helpyou.png';
 
+import one from '../assets/postonline.png';
+import two from '../assets/postonlinee.png';
+import three from '../assets/postonlineee.png';
+
+import bannerimg from '../assets/blue-bridge-logo-main.png';
+
 function handleSignOut() {
   signOut()
     .then(() => {
@@ -170,7 +176,7 @@ isElementVisible = (el) => {
       <div className="containerr">
         <div className="navbar">
           <div className="padding80">
-            <p onClick={() => this.props.history.push('/experts')}>BlueBridge.nl</p>
+            <img onClick={() => this.props.history.push('/')} style={{width: 150, borderRadius: 20}} src={bannerimg} alt="description" />
             {isMobile && (
                 <>
                   <button className="menu-button" onClick={this.toggleMobileMenu}>
@@ -217,7 +223,7 @@ isElementVisible = (el) => {
           <div style={{marginTop: 10, display: "flex", alignItems: "center", textAlign: "justify", padding: 10, borderRadius: 20, justifyContent: "space-between", width: "90%"}}>
             <div className="sectwocards">
               <img width="50" height="50" style={{marginBottom: 30}} src={business} alt="business"/>
-              <p className="justifiedd">Post a Request</p>
+              <p className="justifiedd">Post a Job</p>
               <p >Aliquam pretium fringilla augue orci dictum sollicitudin purus risus.</p>
             </div>
             <div className="sectwocards">
@@ -260,16 +266,22 @@ isElementVisible = (el) => {
 
           <div style={{marginTop: 10, display: "flex", alignItems: "center", textAlign: "justify", padding: 10, borderRadius: 20, justifyContent: "space-between", width: "80%"}}>
             <div ref={this.postRequestElement} className={`sectwocardss slide-innn ${this.state.isPostRequestVisible ? 'activee' : ''}`}>
+              <div style={{width: 100, height: 100, borderRadius: 150, backgroundColor: "#fff",  display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 30}}>
+                <img width="50" height="50"  src={one} alt="business"/>
+              </div>
               <p className="justified">Post a Request</p>
-              <p >Aliquam pretium fringilla augue orci dictum sollicitudin purus risus.</p>
             </div>
             <div ref={this.reviewOffersElement} className={`sectwocardss slide-innn ${this.state.isReviewOffersVisible ? 'activee' : ''}`}>
+              <div style={{width: 100, height: 100, borderRadius: 150, backgroundColor: "#fff",  display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 30}}>
+                <img width="50" height="50"  src={two} alt="business"/>
+              </div>
               <p className="justified">Review Offers</p>
-              <p >Aliquam pretium fringilla augue orci dictum sollicitudin purus risus.</p>
             </div>
             <div ref={this.getItDoneElement} className={`sectwocardss slide-innn ${this.state.isGetItDoneVisible ? 'activee' : ''}`}>
+              <div style={{width: 100, height: 100, borderRadius: 150, backgroundColor: "#fff",  display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 30}}>
+                <img width="50" height="50"  src={three} alt="business"/>
+              </div>
               <p className="justified">Get It Done</p>
-              <p >Aliquam pretium fringilla augue orci dictum sollicitudin purus risus.</p>
             </div>
           </div>
 

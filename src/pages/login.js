@@ -7,6 +7,8 @@ import Loader from "../components/loader";
 import { signIn } from "../utils/firebase";
 import { validateEmailPassword } from "../utils/helpers";
 
+import plane from "../assets/blue-bridge-logo.png";
+
 
 import "../styles/login.css";
 
@@ -99,8 +101,7 @@ class Login extends React.Component {
         <div className="container">
 
           <div className="welcomecard">
-            <h1>BlueBridge</h1>
-            {/*<img className="img" src={plane} alt="description" />*/}
+            <img style={{width: 300, borderRadius: 150}} src={plane} alt="description" />
           </div>
 
           <div className="inputfield">

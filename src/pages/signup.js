@@ -7,6 +7,8 @@ import { createNewUser } from "../utils/firebase";
 import Loader from "../components/loader";
 import { validateEmailPassword } from "../utils/helpers";
 
+import plane from "../assets/blue-bridge-logo.png";
+
 import "../styles/login.css";
 
 class SignUp extends React.Component {
@@ -111,7 +113,7 @@ class SignUp extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <div className="container">
           <div className="welcomecard">
-            <h1>BlueBridge</h1>
+            <img style={{width: 300, borderRadius: 150}} src={plane} alt="description" />
           </div>
 
           <div className="inputfield">
