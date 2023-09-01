@@ -7,6 +7,10 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 
 import DUMMY_IMAGE_URL from "../assets/manwithlaptop.png";
 import plane from '../assets/banner.png';
+import business from '../assets/offer.png';
+import freelan from '../assets/freelan.png';
+import moneyy from '../assets/moneyy.png';
+import helpyou from '../assets/helpyou.png';
 
 function handleSignOut() {
   signOut()
@@ -29,8 +33,46 @@ class Home extends React.Component {
       imageData: [],
       currentImageIndices: {},
       redirectToLogin: false,
+      isActive: false,
+      isPostRequestVisible: false,
+      isReviewOffersVisible: false,
+      isGetItDoneVisible: false
     };
+    this.slideInElement = React.createRef();
+    this.postRequestElement = React.createRef();
+    this.reviewOffersElement = React.createRef();
+    this.getItDoneElement = React.createRef(); 
   }
+
+  handleScroll = () => {
+    // Use the ref to get the DOM element
+    const el = this.slideInElement.current;
+    
+    const slideInAt = (window.scrollY + window.innerHeight) - el.clientHeight / 2;
+    const elementBottom = el.offsetTop + el.clientHeight;
+    const isHalfShown = slideInAt > el.offsetTop;
+    const isNotScrolledPast = window.scrollY < elementBottom;
+    const postRequestEl = this.postRequestElement.current;
+    const reviewOffersEl = this.reviewOffersElement.current;
+    const getItDoneEl = this.getItDoneElement.current;
+    
+    this.setState({ isActive: isHalfShown && isNotScrolledPast });
+
+    this.setState({
+      isPostRequestVisible: this.isElementVisible(postRequestEl),
+      isReviewOffersVisible: this.isElementVisible(reviewOffersEl),
+      isGetItDoneVisible: this.isElementVisible(getItDoneEl)
+    });
+}
+
+isElementVisible = (el) => {
+  const slideInAt = (window.scrollY + window.innerHeight) - el.clientHeight / 2;
+  const elementBottom = el.offsetTop + el.clientHeight;
+  const isHalfShown = slideInAt > el.offsetTop;
+  const isNotScrolledPast = window.scrollY < elementBottom;
+
+  return isHalfShown && isNotScrolledPast;
+}
 
   handleLogin = () => {
     this.setState({ redirectToLogin: true });
@@ -51,6 +93,7 @@ class Home extends React.Component {
 
     // Add event listener
     window.addEventListener('resize', this.handleResize);
+    window.addEventListener('scroll', this.handleScroll);
 
     // Set up media query listener
     this.mql = window.matchMedia('(max-width: 768px)');
@@ -108,6 +151,7 @@ class Home extends React.Component {
     window.removeEventListener('resize', this.handleResize);
     // Remove media query listener
     this.mql && this.mql.removeListener(this.handleMediaQuery);
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
   toggleMobileMenu = () => {
@@ -158,33 +202,84 @@ class Home extends React.Component {
               )}
           </div>
         </div>
+
+
         <div className="homepage">
           <div className="homepageinside">
             <h3>Find an expert for <br />any kind of task</h3>
             <img className="img border-radius" src={plane} alt="description" />
           </div>
+
+          <div style={{marginTop: 100, height: 80, display: "flex", alignItems: "center", justifyContent: "center"}}>
+            <h1>Need Something done?</h1>
+          </div>
+
+          <div style={{marginTop: 10, display: "flex", alignItems: "center", textAlign: "justify", padding: 10, borderRadius: 20, justifyContent: "space-between", width: "90%"}}>
+            <div className="sectwocards">
+              <img width="50" height="50" style={{marginBottom: 30}} src={business} alt="business"/>
+              <p className="justifiedd">Post a Request</p>
+              <p >Aliquam pretium fringilla augue orci dictum sollicitudin purus risus.</p>
+            </div>
+            <div className="sectwocards">
+              <img width="50" height="50" style={{marginBottom: 30}} src={freelan} alt="business"/>
+              <p className="justifiedd">Choose freelancers</p>
+              <p >Aliquam pretium fringilla augue orci dictum sollicitudin purus risus.</p>
+            </div>
+            <div className="sectwocards">
+              <img width="50" height="50" style={{marginBottom: 30}} src={moneyy} alt="business"/>
+              <p className="justifiedd">Pay safely</p>
+              <p >Aliquam pretium fringilla augue orci dictum sollicitudin purus risus.</p>
+            </div>
+            <div className="sectwocards">
+              <img width="50" height="50" style={{marginBottom: 30}} src={helpyou} alt="business"/>
+              <p className="justifiedd">We are to help</p>
+              <p >Aliquam pretium fringilla augue orci dictum sollicitudin purus risus.</p>
+            </div>
+          </div>
+
+
           <div className="homepageinsidesectwo">
-            <div className="sectwocards">
+            <div className={`sectwocardss slide-in ${this.state.isActive ? 'active' : ''}`} ref={this.slideInElement}>
               <img className="imgcard" src={DUMMY_IMAGE_URL} alt="description" />
-              <p className="justified">Maecenas varius porttitor ipsum consequat
-              vivamus urna lacus viverra a sed eget.</p>
-              <Link className="linkk" to="/signup">Post a request</Link>
+              <p className="justified">Maecenas varius porttitor ipsum consequat.</p>
+              <Link className="linkkk" to="/signup">Post a request</Link>
             </div>
-            <div className="sectwocards">
+
+            <div className={`sectwocardss slide-inn ${this.state.isActive ? 'active' : ''}`}>
               <img className="imgcard" src={DUMMY_IMAGE_URL} alt="description" />
-              <p className="justified">Maecenas varius porttitor ipsum consequat
-              vivamus urna lacus viverra a sed eget.</p>
-              <Link className="linkk" to="/signup">List a service</Link>
+              <p className="justified">Maecenas varius porttitor ipsum consequat.</p>
+              <Link className="linkkk" to="/signup">List a service</Link>
             </div>
           </div>
-          <div style={{marginTop: 30, flexDirection: "column", display: "flex", alignItems: "center", textAlign: "justify"}}>
-            <h3>About us</h3>
-            <h2>Maecenas varius porttitor ipsum consequat
-              vivamus urna lacus viverra a sed eget.Maecenas varius porttitor ipsum consequat
-              vivamus urna lacus viverra a sed eget.</h2>
-              <Link className="linkk" to="/signup">Read more</Link>
+
+
+          <div style={{marginTop: 100, height: 80, display: "flex", alignItems: "center", justifyContent: "center"}}>
+            <h1>How it works</h1>
           </div>
-          <div style={{height: 100, display: "flex", alignItems: "center", justifyContent: "center"}}>
+
+
+          <div style={{marginTop: 10, display: "flex", alignItems: "center", textAlign: "justify", padding: 10, borderRadius: 20, justifyContent: "space-between", width: "80%"}}>
+            <div ref={this.postRequestElement} className={`sectwocardss slide-innn ${this.state.isPostRequestVisible ? 'activee' : ''}`}>
+              <p className="justified">Post a Request</p>
+              <p >Aliquam pretium fringilla augue orci dictum sollicitudin purus risus.</p>
+            </div>
+            <div ref={this.reviewOffersElement} className={`sectwocardss slide-innn ${this.state.isReviewOffersVisible ? 'activee' : ''}`}>
+              <p className="justified">Review Offers</p>
+              <p >Aliquam pretium fringilla augue orci dictum sollicitudin purus risus.</p>
+            </div>
+            <div ref={this.getItDoneElement} className={`sectwocardss slide-innn ${this.state.isGetItDoneVisible ? 'activee' : ''}`}>
+              <p className="justified">Get It Done</p>
+              <p >Aliquam pretium fringilla augue orci dictum sollicitudin purus risus.</p>
+            </div>
+          </div>
+
+
+          <div style={{marginTop: 100, height: 80, display: "flex", alignItems: "center", justifyContent: "center"}}>
+          </div>
+
+
+
+          <div style={{height: 40, display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50}}>
             <p>&copy;BlueBridge All Rights Resevred. </p>
           </div>
         </div>
