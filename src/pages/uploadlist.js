@@ -70,7 +70,7 @@ class Home extends React.Component {
           title: this.state.title,
           shortdescription: this.state.shortdescription,
           longdescription: this.state.longdescription,
-          type: "request"
+          type: "service"
         };
         Firebase.database().ref('images/').push().set(data);
         this.setState({ 

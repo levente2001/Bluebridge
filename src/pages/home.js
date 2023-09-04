@@ -196,13 +196,13 @@ isElementVisible = (el) => {
                 <div className="navbar-items">
                   <button onClick={this.handleLogin} className="marginside40 ">Profile </button>
                   <button onClick={() => this.props.history.push('/experts')} className="marginside40 ">Experts </button>
-                  <button className="marginside40 ">Requests </button>
+                  <button onClick={() => this.props.history.push('/requests')} className="marginside40 ">Requests </button>
                   <button className="marginside40 ">About </button>
                   {this.props.authState === authStates.LOGGED_IN && (
                     <button onClick={() => this.props.history.push('/upload')} className="post buttonsidebar marginside40"> Post a request </button>
                   )}
                   {this.props.authState === authStates.LOGGED_IN && (
-                    <button onClick={() => this.props.history.push('/upload')} className="list buttonsidebar marginside40 "> List a service </button>
+                    <button onClick={() => this.props.history.push('/uploadlist')} className="list buttonsidebar marginside40 "> List a service </button>
                   )}
                 </div>
               )}
@@ -254,7 +254,7 @@ isElementVisible = (el) => {
             <div className={`sectwocardss slide-inn ${this.state.isActive ? 'active' : ''}`}>
               <img className="imgcard" src={DUMMY_IMAGE_URL} alt="description" />
               <p className="justified">Maecenas varius porttitor ipsum consequat.</p>
-              <Link className="linkkk" to="/upload">List a service</Link>
+              <Link className="linkkk" to="/uploadlist">List a service</Link>
             </div>
           </div>
 

@@ -47,7 +47,7 @@ class Home extends React.Component {
     // Trigger once on mount
     this.handleMediaQuery(this.mql);
 
-    const db = Firebase.database().ref("images").orderByChild('type').equalTo('service');
+    const db = Firebase.database().ref("images").orderByChild('type').equalTo('request');
     db.on("value", snapshot => {
       let imageData = [];
       snapshot.forEach(snap => {
@@ -135,7 +135,7 @@ class Home extends React.Component {
                 <div className="navbar-items">
                   <button onClick={this.handleLogin} className="marginside40 ">Profile </button>
                   <button onClick={() => this.props.history.push('/experts')} className="marginside40 ">Experts </button>
-                  <button onClick={() => this.props.history.push('/requests')} className="marginside40 ">Requests </button>
+                  <button onClick={() => this.props.history.push('/requests')}  className="marginside40 ">Requests </button>
                   <button className="marginside40 ">About </button>
                   {this.props.authState === authStates.LOGGED_IN && (
                     <button onClick={() => this.props.history.push('/upload')} className="post buttonsidebar marginside40"> Post a request </button>

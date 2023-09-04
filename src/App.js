@@ -7,6 +7,8 @@ import Signup from "./pages/signup";
 import Upload from "./pages/upload";
 import Profile from "./pages/profile";
 import Experts from "./pages/experts";
+import Request from "./pages/requests";
+import UploadList from "./pages/uploadlist";
 
 import "./App.css";
 
@@ -31,6 +33,12 @@ function App() {
           </Route>
           <Route path="/experts">
             <Experts />
+          </Route>
+          <Route path="/uploadlist">
+            <UploadList />
+          </Route>
+          <Route path="/requests">
+            <Request />
           </Route>
         </Switch>
     </Router>

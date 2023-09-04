@@ -132,13 +132,13 @@ toggleMobileMenu = () => {
                 <div className="navbar-items">
                   <button onClick={this.handleLogin} className="marginside40 ">Profile </button>
                   <button onClick={() => this.props.history.push('/experts')} className="marginside40 ">Experts </button>
-                  <button className="marginside40 ">Requests </button>
+                  <button onClick={() => this.props.history.push('/requests')} className="marginside40 ">Requests </button>
                   <button className="marginside40 ">About </button>
                   {this.props.authState === authStates.LOGGED_IN && (
                     <button onClick={() => this.props.history.push('/upload')} className="post buttonsidebar marginside40"> Post a request </button>
                   )}
                   {this.props.authState === authStates.LOGGED_IN && (
-                    <button onClick={() => this.props.history.push('/upload')} className="list buttonsidebar marginside40 "> List a service </button>
+                    <button onClick={() => this.props.history.push('/uploadlist')} className="list buttonsidebar marginside40 "> List a service </button>
                   )}
                 </div>
               )}
