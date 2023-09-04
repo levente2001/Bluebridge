@@ -248,13 +248,13 @@ isElementVisible = (el) => {
             <div className={`sectwocardss slide-in ${this.state.isActive ? 'active' : ''}`} ref={this.slideInElement}>
               <img className="imgcard" src={DUMMY_IMAGE_URL} alt="description" />
               <p className="justified">Maecenas varius porttitor ipsum consequat.</p>
-              <Link className="linkkk" to="/signup">Post a request</Link>
+              <Link className="linkkk" to="/upload">Post a request</Link>
             </div>
 
             <div className={`sectwocardss slide-inn ${this.state.isActive ? 'active' : ''}`}>
               <img className="imgcard" src={DUMMY_IMAGE_URL} alt="description" />
               <p className="justified">Maecenas varius porttitor ipsum consequat.</p>
-              <Link className="linkkk" to="/signup">List a service</Link>
+              <Link className="linkkk" to="/upload">List a service</Link>
             </div>
           </div>
 

@@ -121,7 +121,7 @@ class Home extends React.Component {
     }
 
     return (
-      <div className="container">
+      <div className="containerr">
         <div className="navbar">
         <div className="padding80">
             <p onClick={() => this.props.history.push('/')}>BlueBridge.nl</p>
@@ -157,31 +157,31 @@ class Home extends React.Component {
           </div>
         </div>
         <div className="homepagee">
-        <div className="itemslist">
-        {imageData && imageData.map((post, postIndex) => (
-            <div key={postIndex} className="card uploadscreen">
-              {post.imageURLs && post.imageURLs.length > 0 ? (
-                post.imageURLs.map((imageUrl, imgIndex) => (
-                  <div key={imgIndex} style={{ borderRadius: "10px", alignItems: "center", justifyContent: "center", width: '100%', height: '100%', display: imgIndex === (currentImageIndices[postIndex] || 0) ? 'block' : 'none' }}>
-                    <img onClick={() => this.props.history.push(`/productpage/${post.id}`)} src={imageUrl} alt="uploaded" style={{ width: '200px', height: '40%', objectFit: 'contain', cursor: "pointer" }} />
-                    <div style={{display: "flex", alignItems: "center", justifyContent: "center", width: '100%',}}>
-                      <button className="cardbutton" onClick={() => this.handleImageScroll(postIndex, -1)}>&lt;</button>
-                      <button className="cardbutton" onClick={() => this.handleImageScroll(postIndex, 1)}>&gt;</button>
+            <div className="itemslist">
+              {imageData && imageData.map((post, postIndex) => (
+                <div key={postIndex} className="card uploadscreen">
+                  {post.imageURLs && post.imageURLs.length > 0 ? (
+                    post.imageURLs.map((imageUrl, imgIndex) => (
+                      <div key={imgIndex} style={{ borderRadius: "10px", alignItems: "center", justifyContent: "center", width: '100%', height: '100%', display: imgIndex === (currentImageIndices[postIndex] || 0) ? 'block' : 'none' }}>
+                        <img onClick={() => this.props.history.push(`/productpage/${post.id}`)} src={imageUrl} alt="uploaded" style={{ width: '200px', height: '40%', objectFit: 'contain', cursor: "pointer" }} />
+                        <div style={{display: "flex", alignItems: "center", justifyContent: "center", width: '100%',}}>
+                          <button className="cardbutton" onClick={() => this.handleImageScroll(postIndex, -1)}>&lt;</button>
+                          <button className="cardbutton" onClick={() => this.handleImageScroll(postIndex, 1)}>&gt;</button>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <div style={{ borderRadius: "10px", alignItems: "center", justifyContent: "center", width: '100%', height: '100%' }}>
+                      <img src={DUMMY_IMAGE_URL} alt="Default" style={{ width: '200px', height: '40%', objectFit: 'contain', cursor: "pointer" }} />
                     </div>
+                  )}
+                  
+                  <div style={{display: "flex", alignItems: "center", justifyContent: "center", width: '100%',}}>
+                    <h2 style={{fontSize: "1em"}}>{post.title}</h2>
                   </div>
-                ))
-              ) : (
-                <div style={{ borderRadius: "10px", alignItems: "center", justifyContent: "center", width: '100%', height: '100%' }}>
-                  <img src={DUMMY_IMAGE_URL} alt="Default" style={{ width: '200px', height: '40%', objectFit: 'contain', cursor: "pointer" }} />
-                </div>
-              )}
-              
-              <div style={{display: "flex", alignItems: "center", justifyContent: "center", width: '100%',}}>
-                <h2 style={{fontSize: "1em"}}>{post.title}</h2>
-              </div>
-              <div className="itemdescription">
-                <p className="fontloader">{post.shortdescription}</p>
-              </div>
+                  <div className="itemdescription">
+                    <p className="fontloader">{post.shortdescription}</p>
+                  </div>
             </div>
           ))}
 
