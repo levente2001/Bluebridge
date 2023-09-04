@@ -176,7 +176,7 @@ isElementVisible = (el) => {
       <div className="containerr">
         <div className="navbar">
           <div className="padding80">
-            <img onClick={() => this.props.history.push('/')} style={{width: 150, borderRadius: 20}} src={bannerimg} alt="description" />
+            <img onClick={() => this.props.history.push('/')} style={{width: 120, borderRadius: 20, cursor: "pointer"}} src={bannerimg} alt="description" />
             {isMobile && (
                 <>
                   <button className="menu-button" onClick={this.toggleMobileMenu}>
