@@ -9,6 +9,7 @@ import Profile from "./pages/profile";
 import Experts from "./pages/experts";
 import Request from "./pages/requests";
 import UploadList from "./pages/uploadlist";
+import Subscribe from "./pages/subscribe";
 
 import "./App.css";
 
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route path="/requests">
             <Request />
+          </Route>
+          <Route path="/subscribe">
+            <Subscribe />
           </Route>
         </Switch>
     </Router>

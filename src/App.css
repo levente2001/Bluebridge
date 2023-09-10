@@ -140,6 +140,20 @@ h3 {
   border-radius: 10px;
 }
 
+.secthreecards {
+  width: 30%;
+  height: 500px;
+  margin: 10px;
+  display: flex;
+  background-color: #f3f3f3;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
 .sectwocardss {
   width: 30%;
   margin: 10px;

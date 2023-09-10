@@ -10,6 +10,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import bannerimg from '../assets/blue-bridge-logo-main.png';
 
 
+
 class Home extends React.Component {
   constructor(props){
     super(props);
@@ -28,10 +29,13 @@ class Home extends React.Component {
     };
   };
 
+
+  
+
   handleLogin = () => {
     this.setState({ redirectToLoginn: true });
   }
-  handleSubscribe = () => {
+  handleLogin = () => {
     this.setState({ redirectToLoginnn: true });
   }
 
@@ -117,7 +121,7 @@ toggleMobileMenu = () => {
     }
 
     return (
-      <div className="container">
+      <div className="containerr">
         <div className="navbar">
           <div className="padding80">
             <img onClick={() => this.props.history.push('/')} style={{width: 120, borderRadius: 20, cursor: "pointer"}} src={bannerimg} alt="description" />
@@ -152,13 +156,24 @@ toggleMobileMenu = () => {
           </div>
         </div>
 
-        <div className="uploadscreen">
-            <div className="uploadform">
-            <button onClick={this.handleSignOut} className="linkk ">Sign out </button>
-            <button onClick={this.handleLogin} className="linkk ">Log in </button>
-            <button onClick={this.handleSubscribe} className="linkk ">Subscribe </button>
+        <div className="homepagee">
+            <div style={{marginTop: 10, display: "flex", textAlign: "justify", padding: 10, borderRadius: 20, justifyContent: "center", width: "80%", backgroundColor: "#fff", alignItems: "center"}}>
+            <div style={{width: "100%"}}
+              dangerouslySetInnerHTML={{
+                __html: `
+                <stripe-pricing-table pricing-table-id="prctbl_1NosKWFkBFBAJ31EfYeyeBTS"
+                publishable-key="pk_test_51Ngx5MFkBFBAJ31EhQzPjg9ary1WmbSc32qJHcNb5UKXZChcbyq1sgPE3e5v18Ai9Z9LC7djfeJGPhzIRvy5uTQZ00amXrWl42">
+                </stripe-pricing-table>
+                `
+              }}
+            />
             </div>
         </div>
+
+
+       
+
+        
       </div>
     );
   }
