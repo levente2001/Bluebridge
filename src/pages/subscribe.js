@@ -121,7 +121,7 @@ toggleMobileMenu = () => {
     }
 
     return (
-      <div className="containerr">
+      <div className="containerrr">
         <div className="navbar">
           <div className="padding80">
             <img onClick={() => this.props.history.push('/')} style={{width: 120, borderRadius: 20, cursor: "pointer"}} src={bannerimg} alt="description" />
@@ -156,9 +156,9 @@ toggleMobileMenu = () => {
           </div>
         </div>
 
-        <div className="homepagee">
-            <div style={{marginTop: 10, display: "flex", textAlign: "justify", padding: 10, borderRadius: 20, justifyContent: "center", width: "80%", backgroundColor: "#fff", alignItems: "center"}}>
-            <div style={{width: "100%"}}
+        <div className="homepageee">
+            <div style={{marginTop: 10, display: "flex", borderRadius: 20, width: "100%", backgroundColor: "#fff", padding: 20}}>
+            <div style={{width: "100%", borderRadius: 20}}
               dangerouslySetInnerHTML={{
                 __html: `
                 <stripe-pricing-table pricing-table-id="prctbl_1NosKWFkBFBAJ31EfYeyeBTS"

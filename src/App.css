@@ -90,6 +90,15 @@ h3 {
   
 }
 
+.containerrr {
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+}
+
 .homepage {
   display: flex;
   margin-top: 170px;
@@ -105,6 +114,15 @@ h3 {
   flex-direction: column;
   align-items: center;
   width: 80vw;
+  overflow: hidden;
+}
+
+.homepageee {
+  display: flex;
+  margin-top: 90px;
+  flex-direction: column;
+  align-items: center;
+  width: 90vw;
   overflow: hidden;
 }
 
@@ -700,4 +718,9 @@ textarea {
 .activee {
   transform: translateY(0);
   opacity: 1;
+}
+
+.subsform {
+  width: 100%;
+  border: thin solid red;
 }
