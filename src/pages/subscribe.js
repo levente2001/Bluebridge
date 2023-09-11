@@ -157,16 +157,16 @@ toggleMobileMenu = () => {
         </div>
 
         <div className="homepageee">
-            <div style={{marginTop: 10, display: "flex", borderRadius: 20, width: "100%", backgroundColor: "#fff", padding: 20}}>
-            <div style={{width: "100%", borderRadius: 20}}
-              dangerouslySetInnerHTML={{
-                __html: `
-                <stripe-pricing-table pricing-table-id="prctbl_1NosKWFkBFBAJ31EfYeyeBTS"
-                publishable-key="pk_test_51Ngx5MFkBFBAJ31EhQzPjg9ary1WmbSc32qJHcNb5UKXZChcbyq1sgPE3e5v18Ai9Z9LC7djfeJGPhzIRvy5uTQZ00amXrWl42">
-                </stripe-pricing-table>
-                `
-              }}
-            />
+            <div style={{ display: "flex", borderRadius: 20, width: "100%"}}>
+              <div style={{width: "100%", borderRadius: 20, padding: 20, backgroundColor: "#fff"}}
+                dangerouslySetInnerHTML={{
+                  __html: `
+                  <stripe-pricing-table pricing-table-id="prctbl_1NosKWFkBFBAJ31EfYeyeBTS"
+                  publishable-key="pk_test_51Ngx5MFkBFBAJ31EhQzPjg9ary1WmbSc32qJHcNb5UKXZChcbyq1sgPE3e5v18Ai9Z9LC7djfeJGPhzIRvy5uTQZ00amXrWl42">
+                  </stripe-pricing-table>
+                  `
+                }}
+              />
             </div>
         </div>
 
