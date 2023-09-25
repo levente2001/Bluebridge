@@ -3,14 +3,14 @@ import "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDESbT__EdMZ4TrMS3IBMCa0U3-I1VdqOI",
-  authDomain: "serviceshare-d9248.firebaseapp.com",
-  databaseURL: "https://serviceshare-d9248-default-rtdb.firebaseio.com",
-  projectId: "serviceshare-d9248",
-  storageBucket: "serviceshare-d9248.appspot.com",
-  messagingSenderId: "34361231146",
-  appId: "1:34361231146:web:2e66cd76042c52770ec053",
-  measurementId: "G-XL5W11Y04J"
+  apiKey: "AIzaSyAAtaJ0ifuqQOKQ3Ay0ISkDiQl5b7tJfQQ",
+  authDomain: "servicesharenew.firebaseapp.com",
+  databaseURL: "https://servicesharenew-default-rtdb.firebaseio.com",
+  projectId: "servicesharenew",
+  storageBucket: "servicesharenew.appspot.com",
+  messagingSenderId: "718128398318",
+  appId: "1:718128398318:web:512e8bb1264a390626d8ff",
+  measurementId: "G-Q7F9MJX7V4"
 };
 
 export function initialize() {

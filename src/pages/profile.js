@@ -5,6 +5,7 @@ import { signOut } from "../utils/firebase";
 
 
 import Firebase from "firebase";
+import 'firebase/firestore';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 import bannerimg from '../assets/blue-bridge-logo-main.png';
@@ -26,6 +27,7 @@ class Home extends React.Component {
         isReviewOffersVisible: false,
         isGetItDoneVisible: false
     };
+    
   };
 
   handleLogin = () => {
@@ -69,6 +71,23 @@ class Home extends React.Component {
     // Trigger once on mount
     this.handleMediaQuery(this.mql);
 
+    const database = Firebase.firestore();
+    database.collection('products')
+    .where('active', '==', true)
+    .get()
+    .then(querySnapshot => {
+      querySnapshot.forEach(async doc => {
+        console.log(doc.id, ' => ', doc.data());
+        const priceSnap = await doc.ref.collection('prices').get();
+        priceSnap.docs.forEach(doc => {
+          console.log(doc.id, ' => ', doc.data());
+        });
+      });
+    })
+    .catch(error => {
+      console.error("Error fetching documents: ", error);
+    });
+
     const db = Firebase.database().ref("images");
     db.on("value", snapshot => {
       let imageData = [];
@@ -91,6 +110,7 @@ class Home extends React.Component {
       console.log(currentImageIndices);
     });
 }
+
   
 componentWillUnmount() {
   // Remove event listener on cleanup
@@ -166,4 +186,3 @@ toggleMobileMenu = () => {
 }
 
 export default withRouter(withAuth(Home));
-

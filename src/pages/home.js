@@ -290,7 +290,6 @@ isElementVisible = (el) => {
           </div>
 
 
-
           <div style={{height: 40, display: "flex", alignItems: "center", justifyContent: "center", marginTop: 50}}>
             <p>&copy;BlueBridge All Rights Resevred. </p>
           </div>
