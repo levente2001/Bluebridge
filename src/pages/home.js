@@ -6,6 +6,7 @@ import { signOut } from "../utils/firebase";
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 import DUMMY_IMAGE_URL from "../assets/manwithlaptop.png";
+import DUMMY_IMAGE_URLL from "../assets/dummy-post-horisontal.jpg";
 import plane from '../assets/banner.png';
 import business from '../assets/offer.png';
 import freelan from '../assets/freelan.png';
@@ -16,7 +17,7 @@ import one from '../assets/postonline.png';
 import two from '../assets/postonlinee.png';
 import three from '../assets/postonlineee.png';
 
-import bannerimg from '../assets/blue-bridge-logo-main.png';
+import bannerimg from '../assets/blou_logo_0 másolat.png';
 
 function handleSignOut() {
   signOut()
@@ -107,8 +108,8 @@ isElementVisible = (el) => {
     // Trigger once on mount
     this.handleMediaQuery(this.mql);
 
-    const db = Firebase.database().ref("images");
-    db.on("value", snapshot => {
+    const dbb = Firebase.database().ref("images").orderByChild('type').equalTo('service');
+    dbb.on("value", snapshot => {
       let imageData = [];
       snapshot.forEach(snap => {
         // add an id field with the key of the snapshot
@@ -158,6 +159,7 @@ isElementVisible = (el) => {
     // Remove media query listener
     this.mql && this.mql.removeListener(this.handleMediaQuery);
     window.removeEventListener('scroll', this.handleScroll);
+    this.mql && this.mql.removeListener(this.handleMediaQuery);
   }
 
   toggleMobileMenu = () => {
@@ -166,6 +168,7 @@ isElementVisible = (el) => {
 
   render() {
     const { isMobile, showMobileMenu } = this.state;
+    const { imageData, currentImageIndices } = this.state;
     //const { imageData } = this.state;
     if (this.state.redirectToLogin) {
       return <Redirect to="/profile" />;
@@ -176,7 +179,7 @@ isElementVisible = (el) => {
       <div className="containerr">
         <div className="navbar">
           <div className="padding80">
-            <img onClick={() => this.props.history.push('/')} style={{width: 120, borderRadius: 20, cursor: "pointer"}} src={bannerimg} alt="description" />
+            <img onClick={() => this.props.history.push('/')} style={{width: 120, borderRadius: 20, cursor: "pointer",}} src={bannerimg} alt="description" />
             {isMobile && (
                 <>
                   <button className="menu-button" onClick={this.toggleMobileMenu}>
@@ -217,10 +220,46 @@ isElementVisible = (el) => {
           </div>
 
           <div style={{marginTop: 100, height: 80, display: "flex", alignItems: "center", justifyContent: "center"}}>
-            <h1>Need Something done?</h1>
+            <h1>Best rated experts</h1>
           </div>
 
-          <div style={{marginTop: 10, display: "flex", alignItems: "center", textAlign: "justify", padding: 10, borderRadius: 20, justifyContent: "space-between", width: "90%"}}>
+
+          <div className="itemslisthomepage">
+              {imageData && imageData.map((post, postIndex) => (
+                <div key={postIndex} className="card uploadscreen">
+                  {post.imageURLs && post.imageURLs.length > 0 ? (
+                    post.imageURLs.map((imageUrl, imgIndex) => (
+                      <div key={imgIndex} style={{ borderRadius: "10px", alignItems: "center", justifyContent: "center", width: '100%', height: '100%', display: imgIndex === (currentImageIndices[postIndex] || 0) ? 'block' : 'none' }}>
+                        <img onClick={() => this.props.history.push(`/productpage/${post.id}`)} src={imageUrl} alt="uploaded" style={{ width: '200px', height: '40%', objectFit: 'contain', cursor: "pointer" }} />
+                        <div style={{display: "flex", alignItems: "center", justifyContent: "center", width: '100%',}}>
+                          <button className="cardbutton" onClick={() => this.handleImageScroll(postIndex, -1)}>&lt;</button>
+                          <button className="cardbutton" onClick={() => this.handleImageScroll(postIndex, 1)}>&gt;</button>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <div style={{ borderRadius: "10px", alignItems: "center", justifyContent: "center", width: '100%', height: '100%' }}>
+                      <img src={DUMMY_IMAGE_URLL} alt="Default" style={{ width: '200px', height: '40%', objectFit: 'contain', cursor: "pointer", borderRadius: "10px"}} />
+                    </div>
+                  )}
+                  
+                  <div style={{display: "flex", alignItems: "center", justifyContent: "center", width: '100%',}}>
+                    <h2 style={{fontSize: "1em"}}>{post.title}</h2>
+                  </div>
+                  <div className="itemdescription">
+                    <p className="fontloader">{post.shortdescription}</p>
+                  </div>
+            </div>
+          ))}
+
+        </div>
+
+
+
+
+
+
+          {/*<div style={{marginTop: 10, display: "flex", alignItems: "center", textAlign: "justify", padding: 10, borderRadius: 20, justifyContent: "space-between", width: "90%"}}>
             <div className="sectwocards">
               <img width="50" height="50" style={{marginBottom: 30}} src={business} alt="business"/>
               <p className="justifiedd">Post a Job</p>
@@ -241,7 +280,7 @@ isElementVisible = (el) => {
               <p className="justifiedd">We are to help</p>
               <p >Aliquam pretium fringilla augue orci dictum sollicitudin purus risus.</p>
             </div>
-          </div>
+                  </div>*/}
 
 
           <div className="homepageinsidesectwo">
@@ -284,6 +323,7 @@ isElementVisible = (el) => {
               <p className="justified">Get It Done</p>
             </div>
           </div>
+          
 
 
           <div style={{marginTop: 100, height: 80, display: "flex", alignItems: "center", justifyContent: "center"}}>
