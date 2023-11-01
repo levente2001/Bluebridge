@@ -8,10 +8,10 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import DUMMY_IMAGE_URL from "../assets/manwithlaptop.png";
 import DUMMY_IMAGE_URLL from "../assets/dummy-post-horisontal.jpg";
 import plane from '../assets/banner.png';
-import business from '../assets/offer.png';
-import freelan from '../assets/freelan.png';
-import moneyy from '../assets/moneyy.png';
-import helpyou from '../assets/helpyou.png';
+//import business from '../assets/offer.png';
+//import freelan from '../assets/freelan.png';
+//import moneyy from '../assets/moneyy.png';
+//import helpyou from '../assets/helpyou.png';
 
 import one from '../assets/postonline.png';
 import two from '../assets/postonlinee.png';
